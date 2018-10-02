@@ -87,16 +87,35 @@ with open(pyBankCSV, newline="") as csvfile:
 
     #Calculate avg change: sum of rev changes array / length
     average_change = sum(revenue_changes)/(len(revenue_changes) - 1)
+#-------------------------------------------------------------------------
+#Display summary of results
+summary_results = f""" Financial Analysis
+-------------------------------------------------------
+Total Months: {total_months}
+Total Revenue: ${total_revenue}
+Average Change: ${average_change:.2f}
+Greatest Increase: {greatest_increase[0]} : ${greatest_increase[1]:.0f}
+Greatest Decrease: {greatest_decrease[0]} : ${greatest_decrease[1]: .0f}
 
-print("Financial Analysis")
-print("----------------------")
-print(f"Total Months: {total_months}")
-print(f"Total Revenue: ${total_revenue}")
-#print(f"Revnue Change: ${revnue_change}")
-#print(f"Average Change Array: ${revenue_changes}")
-print(f"Average Change: ${average_change:.2f}")
-print(f"Greatest Increase: {greatest_increase[0]} : ${greatest_increase[1]:.0f}")
-print(f"Greatest Decrease: {greatest_decrease[0]} : ${greatest_decrease[1]: .0f}")
+"""
+#---------------------------------------------------------------------------
+
+print(summary_results)
+
+#---------------------------------------------------------------------------
+#open output file and write in results
+
+
+#Set variable for output file
+summary_output_file = os.path.join("financial_analysis.txt")
+
+#Open the output file
+
+with open(summary_output_file, "w", newline="") as textfile:
+    writer = textfile.write(summary_results)
+
+#------------------------------------------------------------------------------
+
 
 
 
